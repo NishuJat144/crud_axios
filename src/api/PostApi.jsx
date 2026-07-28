@@ -15,3 +15,8 @@ export const getPost = () => {
 export const deletePost = (id) => {
     return api.delete(`/posts/${id}`);
 }
+
+// * ADD POST
+export const addPost = (post) => {
+    return api.post("/posts" , post);
+};

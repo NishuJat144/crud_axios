@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPost } from "../api/PostApi";
 import { Card } from "./layout/UI/Card";
+import { Form } from "./Form";
 
 export const Posts = () => {
 
@@ -19,7 +20,12 @@ export const Posts = () => {
   },[]);
 
   return (
+    <>
+    <section className="section-form">
+      <Form data = {data} setData = {setData}/>
+    </section>
     <section className="section-post">
+
       <ul>
         {
             data.map((currData) => {
@@ -28,5 +34,6 @@ export const Posts = () => {
         }
       </ul>
     </section>
+    </>
   )
 }
