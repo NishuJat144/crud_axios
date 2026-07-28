@@ -1,16 +1,33 @@
-# React + Vite
+# React CRUD App with Axios
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive CRUD (Create, Read, Update, Delete) application built with **React.js** and **Axios**. This project demonstrates how to perform REST API operations by fetching, creating, updating, and deleting data from a backend server.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Create new records
+* Read and display data
+* Update existing records
+* Delete records
+* Axios for API communication
+* React Hooks (`useState`, `useEffect`)
+* Clean and responsive UI
+* Error handling for API requests
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React.js
+* Axios
+* JavaScript (ES6+)
+* HTML5
+* CSS3
 
-## Expanding the ESLint configuration
+## 📚 What I Learned
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Making API requests with Axios
+* Handling asynchronous operations
+* Managing React state using Hooks
+* Performing CRUD operations
+* Connecting React frontend with a REST API
+* Error handling and updating UI dynamically
+
+This project helped strengthen my understanding of React fundamentals and client-server communication using REST APIs.
