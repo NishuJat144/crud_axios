@@ -23,7 +23,7 @@ export const Posts = () => {
       <ul>
         {
             data.map((currData) => {
-                return <Card key={currData.id} currData = {currData}/>;
+                return <Card key={currData.id} currData = {currData} data = {data} setData = {setData}/>;
             })
         }
       </ul>
