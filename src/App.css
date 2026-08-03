@@ -80,7 +80,8 @@
 /* form css */
 .section-form{
     padding: 1.6rem;
-    background-color: #212f3d;
+    /* background-color: #212f3d; */
+    background-color: #DCEBFF;
     border-radius: 0.6rem;
     margin: 3.2rem auto;
 }
@@ -98,4 +99,15 @@ form{
    outline: none;
    border-radius: 0.3rem;
    padding: 0.8rem 1.2rem;
+   border: none;
 }
+
+.f-button{
+    width: 80px;
+    border-radius: 2px;
+    border: none;
+    background-color: #1ee266;
+}
+.f-button:hover{
+    cursor: pointer;
+ }

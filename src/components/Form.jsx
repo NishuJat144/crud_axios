@@ -1,13 +1,25 @@
-import { useState } from "react"
-import { addPost } from "../api/PostApi";
+import { useEffect, useState } from "react"
+import { addPost, updatePost } from "../api/PostApi";
 
-export const Form = ({data , setData}) => {
+export const Form = ({data , setData , updateDataApi , setUpdateDataApi}) => {
 
     // * State hook
     const [postData , setPostData] = useState({
         title : "" ,
         body : "" ,
     });
+
+  let isEmpty = Object.keys(updateDataApi).length === 0 ;
+
+    
+    // * useEffect hook
+    useEffect(()=>{
+        updateDataApi && setPostData({
+            title : updateDataApi.title || "" ,
+            body : updateDataApi.body || "" 
+        });
+    },[updateDataApi])
+
 
     // * Handler to handle input data
     const handleInputChange = (e) => {
@@ -33,10 +45,40 @@ export const Form = ({data , setData}) => {
         }
     }
 
+    // * updatePostData 
+    const updatePostData = async(id)=> {
+       try{
+           const res =  await updatePost(updateDataApi.id , postData);
+           console.log(res);
+          
+          if(res.status === 200) {
+              setData((prev) => {
+               // console.log(prev);
+               return prev.map((currData) => {
+                   return currData.id === res.data.id ? res.data : currData ;
+               })
+             });
+        }
+          setPostData({title : "" , body : ""});
+          setUpdateDataApi({});
+     }
+      
+       catch(error){
+        console.log(error);
+       }
+       
+    }
+
     //* FORM SUBMISSION HANDLER
        const handleFormSubmit = (e) => {
            e.preventDefault();
-           addPostData();
+           const action = e.nativeEvent.submitter.value;
+           if(action === "ADD"){
+              addPostData();
+           }
+           else if(action === "EDIT"){
+              updatePostData();
+           }
        }
   
 
@@ -59,7 +101,10 @@ export const Form = ({data , setData}) => {
                 onChange={handleInputChange}
                 />
             </div>
-            <button type="submit">Add</button>
+            <button type="submit" className="f-button"
+             value={isEmpty ? "ADD" : "EDIT"}
+            >
+                {isEmpty ? "ADD" : "EDIT"}</button>
         </form>
     )
 }

@@ -1,6 +1,6 @@
 import { deletePost } from "../../../api/PostApi";
 
-export const Card =({currData ,data , setData}) => {
+export const Card =({currData ,data , setData , setUpdateDataApi}) => {
     const handleDelete = async(id) => {
         try{
              const res = await deletePost(id);
@@ -20,7 +20,11 @@ export const Card =({currData ,data , setData}) => {
        catch(error){
         console.log(error);
        }
-    }
+    };
+
+    const handleUpdatePost = (currData) =>  setUpdateDataApi(currData);
+
+
 
     const {id , title , body} = currData ;
     // console.log(id);
@@ -34,7 +38,8 @@ export const Card =({currData ,data , setData}) => {
                 <p>Title : {title}</p>
                 <p>News : {body}</p>
             <span className="btn">
-                <button className="edit">EDIT</button>
+                <button className="edit"
+                onClick={() => handleUpdatePost(currData)}>EDIT</button>
                 <button className="delete" 
                 onClick={()=> {handleDelete(id)}}>
                 DELETE</button>
