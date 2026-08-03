@@ -3,84 +3,86 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- }
+}
 
- body{
-    margin-top: 100px;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body{
+    min-height: 100vh;
     background-color: #EEF4FF;
- }
+}
 
- /* Posts CSS */
- .section-post{
-   height: 100vh;
-   margin: 20px;
-   padding: 8px;
-   background-color: #EEF4FF;
+/* Posts CSS */
+.section-post{
+    min-height: 100vh;
+    margin: 20px;
+    padding: 8px;
+    background-color: #EEF4FF;
 }
 
 .section-post ul{
-    display: grid ;
-    grid-template-columns: repeat(3,1fr);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-content: center;
-    align-items: center;
 }
 
 /* Cards CSS */
 .list{
     list-style: none;
 }
+
 .list div{
-    width: 450px;
-    height: 230px;
+    width: 100%;
+    min-height: 230px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 5px;
-    /* #212f3d */
-    background-color : #DCEBFF;
+    background-color: #DCEBFF;
     border-left: 2px solid #1E293B;
+    border-radius: 5px;
 }
 
 .container p{
-    color :#1E293B;
+    color: #1E293B;
     line-height: 1.5;
     margin: 4px 0;
 }
 
 .btn{
-    margin: 10px;
+    margin: 10px 0;
     display: inline-flex;
     gap: 10px;
     align-items: center;
 }
+
 .btn button{
     border-radius: 3px;
     border: none;
     color: black;
-    height: 20px;
+    height: 25px;
     font-weight: 500;
 }
+
 .btn button:hover{
     cursor: pointer;
 }
+
 .btn .edit{
    background-color: #1ee266;
    width: 80px;
 }
+
 .btn .delete{
     background-color:#DC2626;
     width: 100px;
 }
 
-/* form css */
+
+/* Form CSS */
 .section-form{
+    width: 90%;
+    max-width: 1100px;
     padding: 1.6rem;
-    /* background-color: #212f3d; */
     background-color: #DCEBFF;
     border-radius: 0.6rem;
     margin: 3.2rem auto;
@@ -90,10 +92,12 @@ form{
     display: flex;
     justify-content: center;
     gap: 1.2rem;
+    flex-wrap: nowrap;
 }
 
-& input{
+input{
    width: 24rem;
+   max-width: 100%;
    color: #212f3d;
    border: 0.1rem solid grey;
    outline: none;
@@ -104,10 +108,56 @@ form{
 
 .f-button{
     width: 80px;
+    height: 35px;
     border-radius: 2px;
     border: none;
     background-color: #1ee266;
 }
+
 .f-button:hover{
     cursor: pointer;
- }
+}
+
+
+/* Tablet */
+@media(max-width: 1024px){
+
+    .section-post ul{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+
+/* Mobile */
+@media(max-width: 600px){
+
+    .section-post{
+        margin: 10px;
+    }
+
+    .section-post ul{
+        grid-template-columns: 1fr;
+    }
+
+    .list div{
+        min-height: auto;
+    }
+
+    .section-form{
+        width: 95%;
+        margin: 1.5rem auto;
+    }
+
+    form{
+        flex-direction: column;
+    }
+
+    input{
+        width: 100%;
+    }
+
+    .f-button{
+        width: 100%;
+    }
+}
